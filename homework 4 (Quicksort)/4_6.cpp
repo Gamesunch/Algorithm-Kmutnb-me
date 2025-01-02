@@ -54,6 +54,7 @@ int main() {
     cout<<endl;
 
     // Print mode (output 2)
+    // need to fix this code doesn't work like i expect, but now i need to rest.
     int maxCount = -10000;
     int tempCount = 0;
     for(int i = 0;i<size;i++){
