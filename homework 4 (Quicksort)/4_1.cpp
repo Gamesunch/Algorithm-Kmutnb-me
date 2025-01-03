@@ -13,12 +13,14 @@ int Partition(int A[], int l, int r) {
         do {
             j--;
         } while (A[j] < pivot);
-
+		
+		swap(A[i], A[j]);
+		
         if (i >= j) break;
-
-        swap(A[i], A[j]);
+        
     }
-
+    
+	swap(A[i], A[j]);	
     swap(A[l], A[j]);
 
     return j;
@@ -34,7 +36,6 @@ void Quicksort(int A[], int l, int r) {
     }
 }
 
-// Driver function
 int main() {
     int A[] = {16,25,2,54,36,9,12,66};
     int n = sizeof(A) / sizeof(A[0]);
