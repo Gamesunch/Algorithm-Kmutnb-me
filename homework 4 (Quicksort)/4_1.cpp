@@ -14,13 +14,12 @@ int Partition(int A[], int l, int r) {
             j--;
         } while (A[j] < pivot);
 		
-		swap(A[i], A[j]);
+	swap(A[i], A[j]);
 		
         if (i >= j) break;
         
     }
-    
-	swap(A[i], A[j]);	
+    swap(A[i], A[j]);	
     swap(A[l], A[j]);
 
     return j;
