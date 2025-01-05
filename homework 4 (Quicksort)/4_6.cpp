@@ -5,19 +5,21 @@
 
 using namespace std;
 
+//convert vector(array) to string
 string vectorToString(vector<int>& vec) {
     string result;
-    for (int num : vec) {
-        result += to_string(num);
+    for (int i = 0; i < vec.size(); i++) {
+        result += to_string(vec[i]);
     }
     return result;
 }
 
+//find if number before str[i] is this same number if yes count++;
 vector<char> findMostFrequentDigits(string& str) {
     vector<char> frequentDigits;
     int maxCount = 1, currentCount = 1;
 
-    for (size_t i = 1; i < str.size(); i++) {
+    for (int i = 1; i < str.size(); i++) {
         if (str[i] == str[i - 1]) {
             currentCount++;
         } else {
@@ -39,10 +41,11 @@ vector<char> findMostFrequentDigits(string& str) {
     return frequentDigits;
 }
 
+//reduce the string
 string reduceConsecutiveDuplicates(string& str) {
     string reduced;
     reduced += str[0];
-    for (size_t i = 1; i < str.size(); i++) {
+    for (int i = 1; i < str.size(); i++) {
         if (str[i] != str[i - 1]) {
             reduced += str[i];
         }
@@ -67,9 +70,11 @@ int main() {
 
     // Output 2
     vector<char> mostFrequent = findMostFrequentDigits(concatenated);
-    for (char digit : mostFrequent) {
-        cout << digit << " ";
-    }
+    
+    for (int i = 0; i < mostFrequent.size(); i++) {
+    	cout << mostFrequent[i] << " ";
+	}
+
     cout << endl;
 
     // Output 3
@@ -77,4 +82,3 @@ int main() {
 
     return 0;
 }
-
