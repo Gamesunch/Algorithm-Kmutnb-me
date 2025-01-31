@@ -39,7 +39,7 @@ int Partition(int A[],int l,int r){
 }
 
 void Quicksort(int A[],int l,int r){
-	if(l<r){
+	if(l<=r){
 		int p = Partition(A,l,r);
 		cout<<p+1<<" ";
 		
