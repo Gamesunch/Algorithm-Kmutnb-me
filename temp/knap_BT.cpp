@@ -20,13 +20,11 @@ int check(int A[],int B[],int x[], int n,int k) {
     }
 
     if(sumA <= k){
-        for(int i = 1;i<=n;i++){
-        	if(sumB > maxvalue){
-        		maxvalue = sumB;
-        		maxweight = sumA;
-        		for(int j = 1;j<=n;j++){
-        			Amax[j-1] = x[j];
-				}
+        if(sumB > maxvalue){
+        	maxvalue = sumB;
+        	maxweight = sumA;
+        	for(int j = 1;j<=n;j++){
+        		Amax[j-1] = x[j];
 			}
 		}
 	}
