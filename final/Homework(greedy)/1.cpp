@@ -19,7 +19,7 @@ int main() {
     cin >> n >> k;
 
     vector<Item> items(n);
-    vector<float> check(n, 0.0);
+    vector<float> check(n, 0);
 
     for (int i = 0; i < n; i++) {
         cin >> items[i].weight;
@@ -33,13 +33,13 @@ int main() {
 
     sort(items.begin(), items.end(), compare);
 
-    float sumValue = 0.0, sumWeight = 0.0;
+    float sumValue = 0, sumWeight = 0;
 
     for (int i = 0; i < n && sumWeight < k; i++) {
         int locate = items[i].index;
         
         if (sumWeight + items[i].weight <= k) {
-            check[locate] = 1.0;
+            check[locate] = 1;
             sumWeight += items[i].weight;
             sumValue += items[i].value;
         } else {
