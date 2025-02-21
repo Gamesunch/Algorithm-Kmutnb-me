@@ -2,14 +2,15 @@
 #include <queue>
 using namespace std;
 
-void DFS(int);
-void BFS(int);
+void DFS(int,vector<vector<int> >);
+void BFS(int,vector<vector<int> >);
 
-int G[100][100], visited[100],n,edge,start;
+int visited[100],n,edge,start;
 
 int main(){
 	int i,j;
 	cin>>n>>edge>>start;
+	vector<vector<int> > G(n,vector<int>(n,0));
 	
 	int u,v;
 	for(int i = 0;i<edge;i++){
@@ -21,22 +22,22 @@ int main(){
 	for(int i = 0;i<n;i++){
 		visited[i] = 0;
 	}
-//	DFS(start);
-	BFS(start);
+//	DFS(start,G);
+	BFS(start,G);
 }
 
-void DFS(int i){
+void DFS(int i,vector<vector<int> > G){
 	int j;
 	cout<<i<<" ";
 	visited[i] = 1;
 	for(int j = 0;j<n;j++){
 		if(G[i][j] == 1 && !visited[j]){
-			DFS(j);
+			DFS(j,G);
 		}
 	}
 }
 
-void BFS(int start){
+void BFS(int start, vector<vector<int> > G){
 	queue<int> q;
 	
 	q.push(start);
