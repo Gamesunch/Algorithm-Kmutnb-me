@@ -51,7 +51,7 @@ int main() {
 		cin>>A[i];
 	}
 	
-    int x[n + 1];        // Array to store subset
+    int x[n + 1];
 
     subset1(A,x, 0, n, k,0);
     cout<<ct<<endl;
