@@ -12,13 +12,13 @@ void permute(char X[], int start, int end) {
     }
 
     for (int i = start; i <= end; i++) {
-        // Ensure only unique swaps happen in lexicographic order
+       
         if (i != start && X[i] == X[start]) continue;
 
-        swap(X[start], X[i]);  // Swap for permutation
-        sort(X + start + 1, X + end + 1);  // Ensure lexicographic order for remaining part
+        swap(X[start], X[i]);
+        sort(X + start + 1, X + end + 1);
         permute(X, start + 1, end);
-        swap(X[start], X[i]);  // Backtrack
+        swap(X[start], X[i]);
     }
 }
 
