@@ -22,9 +22,9 @@ int FTop(int n, int k){
 }
 int FDown(int n, int k){
 	for(int i = 0;i<n;i++){
-		memo11[n][n] = 1;
-		memo11[n][0] = 1;
-		memo11[n][1] = 1;
+		memo11[i][i] = 1;
+		memo11[i][0] = 1;
+		memo11[i][1] = 1;
 	}
 	
 	for(int i = 3;i<=n;i++){
