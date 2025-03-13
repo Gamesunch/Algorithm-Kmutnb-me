@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int totalCoin(vector<vector<int> > &DP, vector<int> &coin, int n,int k){
+int totalCoinDown(vector<vector<int> > &DP, vector<int> &coin, int n,int k){
 	for(int i = 0;i<=n;i++){
 		DP[i][0] = 1;
 	}
@@ -23,6 +23,27 @@ int totalCoin(vector<vector<int> > &DP, vector<int> &coin, int n,int k){
 	return DP[n][k];
 }
 
+int totalCoinTop(vector<vector<int>> &DP, vector<int> &coin, int n, int k) {
+    if (k == 0) return 1;
+    
+    if (n == 0) return 0;
+
+    if (DP[n][k] != -1) return DP[n][k];
+
+    int exclude = totalCoin(DP, coin, n - 1, k);
+    
+    int include = 0;
+    
+	if (coin[n - 1] <= k) {
+	    include = totalCoin(DP, coin, n, k - coin[n - 1]);
+	}
+
+
+    DP[n][k] = exclude + include;
+    
+    return DP[n][k];
+}
+
 int main(){
 	int n,w;
 	
@@ -36,5 +57,5 @@ int main(){
 	
 	vector<vector<int> > DP (n+1, vector<int> (w+1,0));
 	
-	cout<<totalCoin(DP,coin,n,w);
+	cout<<totalCoinTop(DP,coin,n,w);
 }
