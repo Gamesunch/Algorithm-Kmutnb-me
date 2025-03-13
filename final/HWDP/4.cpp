@@ -38,11 +38,43 @@ unsigned long long ADown(int n,int k){
 	return ADownDP[n][k];
 }
 //G(n) = G(n-1) + G(n-2) – G(n-3), G(0) = 0, G(1) = 1, G(2) = 1
+vector<unsigned long long> GTopDP(1000,-1);
+vector<unsigned long long> GDownDP(1000,-1);
+
+unsigned long long GTop(int n){
+	if(n == 1 || n == 2){
+		return 1;
+	}
+	
+	if(n == 0){
+		return 0;
+	}
+	
+	GTopDP[n] = GTop(n-1) + GTop(n-2) - GTop(n-3);
+	
+	return GTopDP[n];
+	
+}
+
+unsigned long long GDown(int n){
+	GDownDP[1] = 1;
+	GDownDP[2] = 1;
+	GDownDP[0] = 0;
+	
+	for(int i = 3;i<=n;i++){
+		GDownDP[i] = GDownDP[i-1] + GDownDP[i-2] - GDownDP[i-3];
+	}
+	
+	return GDownDP[n];
+}
 int main(){
 	int n,k;
 	
-	cin>>n>>k;
-	cout<<ATop(n,k)<<endl;
-	cout<<ADown(n,k)<<endl;
-//	cin>>n;
+//	cin>>n>>k;
+//	cout<<ATop(n,k)<<endl;
+//	cout<<ADown(n,k)<<endl;
+
+	cin>>n;
+//	cout<<GTop(n)<<endl;
+	cout<<GDown(n)<<endl;
 }
