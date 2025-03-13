@@ -34,7 +34,7 @@ int sugar(vector<vector<int> > &x, int n,int m){
 int sugarTop(vector<vector<int>> &x, int n, int m) {
 	
     if (n < 1 || m < 1) {
-        return 0;
+        return 0; //if want min just change to large number
     }
 
     if (n == 1 && m == 1) {
@@ -45,7 +45,7 @@ int sugarTop(vector<vector<int>> &x, int n, int m) {
         return memoTop[n][m];
     }
 
-    memoTop[n][m] = x[n][m] + max(sugarTop(x,n-1,m), sugarTop(x,n,m-1));
+    memoTop[n][m] = x[n][m] + max(sugarTop(x,n-1,m), sugarTop(x,n,m-1)); //change to min for min value
     return memoTop[n][m];
 }
 
